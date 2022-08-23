@@ -82,15 +82,25 @@ function RegisterProfile(props){
     //check
     useEffect(()=>{
 
-        // if( stateProfile.EMPL_ID && stateProfile.EMPL_ID.length==10)
+
+        // if(stateProfile.EMPL_ID && stateProfile.EMPL_ID.length===10)
         // {
-        //     console.log(stateProfile.EMPL_ID.slice(0,2))
-        //     console.log(Number.isInteger(Number(stateProfile.EMPL_ID.slice(2))))
-            
+        //     if(stateProfile.EMPL_ID.slice(0,2)=='VN' && Number.isInteger(Number(stateProfile.EMPL_ID.slice(2))))
+        //     {
+        //         a= true
+        //     } 
+        // }
+        // if(a)
+        // {
+        //     setCheck({...check,chID:false})
+        //     // a= false
+        // }
+        // else{
+        //     setCheck({...check,chID:true})
         // }
         (stateProfile.EMPL_ID && stateProfile.EMPL_ID.length===10 && (stateProfile.EMPL_ID.slice(0,2)=='VN')&& (Number.isInteger(Number(stateProfile.EMPL_ID.slice(2)))))?setCheck({...check,chID:false}):setCheck({...check,chID:true})
-      
-    })
+        
+    },[stateProfile.EMPL_ID])
 
     // load hinh ảnh lên gia diện,...
     const pickImage = async () => {

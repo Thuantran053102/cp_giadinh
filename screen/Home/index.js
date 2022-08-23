@@ -52,8 +52,11 @@ class Home extends Component {
         await ApiAuthority(username,password,JSON.parse(Token),formData,async res => {
         
             this.setState({provinceData:[...provall,...res.Data]})
-           
-            this.fnHandlegetMemall()
+           if( provinceData[1].User_ID)
+           {
+
+               this.fnHandlegetMemall()
+           }
         })
     }
     // lấy danh sách 
@@ -108,7 +111,7 @@ class Home extends Component {
         ViewListMem= ListMember.map((item, index)=>{
             return (
                 <>
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Profile" , {
+                <TouchableOpacity key={index} onPress={()=>this.props.navigation.navigate("Profile" , {
               data: item
             } )}>
                     <View style={styles.itemWrap}>

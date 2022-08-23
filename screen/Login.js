@@ -168,6 +168,7 @@ class Login extends Component {
         let formData = new FormData();
         formData.append('data',JSON.stringify(valuef));
         ApiLogin(formData,async res => {
+            console.log(res)
             if (res.Status === 200) {
                 
                 if (res.Token) {
